@@ -14,9 +14,7 @@ final class PostController extends BaseController
 
     public function create()
     {
-        // TODO To dev;
-
-        // Appel à la BDD
+        echo $this->render('post/create.html.twig', []);
     }
 
     public function read()

@@ -8,7 +8,7 @@ use Twig\Loader\FilesystemLoader;
 
 class BaseController
 {
-    public function render(string $template, array $variables): string
+    public function render(string $template, ?array $variables): string
     {
         $loader = new FilesystemLoader(sprintf('%s/templates/', dirname(__DIR__)));
         $twig = new Environment($loader, [
