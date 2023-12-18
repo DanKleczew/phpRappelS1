@@ -1,5 +1,5 @@
 {
-    "name": "yhammououali/miage-training",
+    "name": "dankleczew/miage-training",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -8,8 +8,13 @@
     },
     "authors": [
         {   
-            "name": "Yassin Hammou Ouali",
-            "email": "y.hammououali@gmail.com"
+            "name": "Dan Kleczewski",
+            "email": "dankleczew@gmail.com"
+        },
+
+        {
+            "name": "Raymond Zheng",
+            "email": "a@a.com"
         }
     ],
     "require": {

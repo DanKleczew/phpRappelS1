@@ -1,1 +1,85 @@
-Mon formulaire
+<form class="formm" name="formulaire" method="post" action="Registration.php" onsubmit="return myFunction()">
+                <fieldset>
+                    <legend><span>CRÉATION DE COMPTE CLIENT</span></legend>
+                    <table id="tableee">
+                    <tr>
+                        <td>Civilité</td>
+                        <td><input type="radio" name="civilite" id="mademoiselle">
+                        <label>Mademoiselle</label>
+                        <input type="radio" name="civilite" id="madame">
+                        <label>Madame</label>
+                        <input type="radio" name="civilite" id="monsieur">
+                        <label>Monsieur</label></td>
+                    </tr>
+                    <tr>
+                        <td><label>Prénom*: </label></td>
+                        <td><input type="text" name="prenom"></td>
+                    </tr>
+                    <tr>
+                        <td>Nom*: </td>
+                        <td><input type="text" name="nom"></td>
+                    </tr>
+                    <tr>
+                        <td>Date de naissance*: </td>
+                        <td><input type="date" name="datenaiss"></td>
+                    </tr><tr>
+                        <td>Adresse*: </td>
+                        <td><textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label>Code postal/Localité*: </label></td>
+                        <td><input type="number" name="postallocal1" size="5">
+                            <input type="text" name="postallocal2" placeholder="Paris" size="8"></td>
+                    </tr>
+                    <tr>
+                        <td>Pays*: </td>
+                        <td>
+                            <select size="1" name="pays">
+                                    <option>Suisse</option>
+                                    <option selected>France</option>
+                                    <option>Allemagne</option>
+                                    <option>Italie</option>
+                                    <option>Espagne</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tel">Numéro de Téléphone :  </label></td>
+                        <td><input type="number", name="tel"></td>
+                    </tr>
+                    
+                </table>
+            
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <legend><span>IDENTIFIANT ET MOT DE PASSE</span></legend>
+                <table id="tableeee">
+                    <tr>
+                        <td><label for Nom>Adresse Email: </label></td>
+                        <td><input type="text", name="mail"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mdp">Mot de Passe: </label></td>
+                        <td><input type="password", name="mdp1" class="mdp1"></td>
+                    </tr>
+                    <tr>
+                        <td><p class="conditionsMPD">Majuscules, Minuscules, Chiffres, Caractères spéciaux</p></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mdp">Confirmez le Mot de Passe: </label></td>
+                        <td><input type="password", name="mdp2"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox" required><label> Accepter les conditions générales de sécurité</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox" name="newsletter"><label> Abonnez vous à notre Newsletter</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2" class="connexion"><br><input type="submit" class="b" value="Créer un compte"></td> 
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
