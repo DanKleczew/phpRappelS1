@@ -14,6 +14,9 @@ final class PostController extends BaseController
 
     public function create()
     {
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            
+        }
         echo $this->render('post/create.html.twig', []);
     }
 
