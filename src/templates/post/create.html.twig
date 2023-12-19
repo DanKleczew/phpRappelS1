@@ -1,3 +1,11 @@
+{% extends "commun/header.html.twig" %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<br> <br> <br>
 <form name="formulaire" method="post" action="?page=home&action=thanks" onsubmit="return myFunction()">
                 <fieldset>
                     <legend><span>CRÉATION DE COMPTE CLIENT</span></legend>
@@ -83,3 +91,9 @@
                 </table>
             </fieldset>
         </form>
+    <br> <br> <br>
+    {% endblock %}
+    
+    {% block foot %}
+        {{ parent() }}
+    {% endblock %}

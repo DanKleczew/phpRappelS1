@@ -1,1 +1,14 @@
-<h1> Merci d'avoir rempli le formulaire </h1>
+{% extends "commun/header.html.twig" %}
+
+{% block head %}
+    {{ parent()}}
+{% endblock %}
+
+{% block body %}
+    <br><br>
+    <h1> Merci d'avoir rempli le formulaire </h1>
+{% endblock %}
+
+{% block foot %}
+    {{ parent()}}
+{% endblock %}
