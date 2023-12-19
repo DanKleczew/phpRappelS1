@@ -2,7 +2,10 @@
 
 namespace App;
 
+use App\Controller\HomeController;
 use App\Controller\PostController;
+use App\Controller\GeneralConditionsController;
+use App\Controller\ContactController;
 
 final class Router
 {
@@ -10,7 +13,7 @@ final class Router
 
     public function __construct()
     {
-        $this->addRoute('cgv', 'GeneralConditionsController');
+        $this->addRoute('cgv', "GeneralConditionsController");
     }
 
     public function addRoute(string $name, string $controller): void
@@ -35,10 +38,19 @@ final class Router
                 throw new \Exception(sprintf('File %s not exist!', "{$controller}.php"));
             }
 
-            $controller = new PostController();
+            switch ($controller){
+                case 'PostController':
+                    $controller = new PostController(); break;
+                case 'HomeController':
+                    $controller = new HomeController(); break;
+                case 'ContactController':
+                    $controller = new ContactController(); break;
+                case 'GeneralConditionsController':
+                    $controller = new GeneralConditionsController; break;
+            }
 
             if (!method_exists($controller, $action)) {
-                throw new \Exception(sprintf('Action %s not exist in %s!', $action, $controller));
+                throw new \Exception(sprintf('Action %s does not exist in %s!', $action, $controller));
             }
 
             $controller->$action();
