@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\BaseController;
 use Twig\Environment;
 
-final class HomeController extends BaseController
+final class HomeController2 extends BaseController
 {
     public function thanks() : void
     {

@@ -1,23 +1,11 @@
 {
-    "name": "dankleczew/miage-training",
-    "type": "project",
+    "name": "rerez/php-rappel-s1",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
         }
     },
-    "authors": [
-        {   
-            "name": "Dan Kleczewski",
-            "email": "dankleczew@gmail.com"
-        },
-
-        {
-            "name": "Raymond Zheng",
-            "email": "a@a.com"
-        }
-    ],
     "require": {
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.8"
     }
 }
