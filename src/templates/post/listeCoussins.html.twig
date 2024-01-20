@@ -1,0 +1,26 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div style='margin-left:5%'>
+        <h2><a href="?page=Coussin&action=create">Ajouter un coussin</a></h2>
+    </div>  
+    
+    {% for objet in myArray %}
+    <div align='center' style='border:2px solid'>
+    <h3>Nom du produit : {{ objet.Nom }} <br>
+    Prix : {{ objet.Prix }} € <br>
+    Quantité : {{ objet.Quantité }} <h3>
+    
+    <a href='?page=Coussin&action=update&ID={{ objet.IDCoussin }}'> Modifier les informations de ce coussin </a> <br>
+    <a style='color:red' href='?page=Coussin&action=delete&name={{ objet.IDCoussin }}'> Supprimer ce coussin </a>
+    </div>
+    <br>
+    {% endfor %}
+{% endblock %}
+
+{% block foot %}
+    {{ parent() }}
+{% endblock %}

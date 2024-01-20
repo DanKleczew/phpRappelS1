@@ -3,12 +3,8 @@
 namespace App;
 
 use App\Controller\HomeController;
-use App\Controller\PostController;
-use App\Controller\PostController2;
-use App\Controller\GeneralConditionsController;
-use App\Controller\ContactController;
 use App\Controller\InscriptionController;
-use App\Controller\AchatController;
+use App\Controller\CoussinController;
 
 final class Router
 {
@@ -30,6 +26,8 @@ final class Router
     public function matchRoute(string $name, ?string $action): bool
     {
         try {
+            
+            
             if (!$action) {
                 throw new \Exception('Controller action needed!');
             }
@@ -42,13 +40,13 @@ final class Router
             if (!file_exists(__DIR__ . "/Controller/{$controller}.php")) {
                 throw new \Exception(sprintf('File '.$controller.' not exist!', "{$controller}.php"));
             }
+            
             switch ($controller){
-                case 'PostController':
-                    $controller = new PostController();break;
+                
                 case 'HomeController':
                     $controller = new HomeController(); break;
-                case 'Achat':
-                    $controller = new AchatController(); break;
+                case 'CoussinController':
+                    $controller = new CoussinController(); break;
                 case 'InscriptionController': 
                     $controller = new InscriptionController(); break;
             }

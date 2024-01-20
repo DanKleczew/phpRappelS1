@@ -8,8 +8,7 @@ use App\Router;
 $router = new Router();
 
 $router->addRoute('home', 'HomeController');
-$router->addRoute('contact', 'ContactController');
-$router->addRoute('post', 'PostController');
+$router->addRoute('Coussin', 'CoussinController');
 $router->addRoute('Inscription','InscriptionController');
 
 //Si il le GET n'est pas encore spécifié (On vient d'arriver sur le site)
