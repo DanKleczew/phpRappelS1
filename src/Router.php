@@ -38,9 +38,6 @@ final class Router
             if (key_exists($name, $this->routes)) {
                 $controller = $this->routes[$name];
             }
-            var_dump($name);
-            var_dump($this->routes);
-            var_dump($controller);
             if (!file_exists(__DIR__ . "/Controller/{$controller}.php")) {
                 throw new \Exception(sprintf('File '.$controller.' not exist!', "{$controller}.php"));
             }
