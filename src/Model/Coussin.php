@@ -20,4 +20,12 @@ class Coussin{
         return $answer;
     }
 
+    public function updateCoussin($quantite, $prix, $nom){
+        //TODO : To dev
+    }
+
+    public function deleteCoussin($IDCoussin){
+        //TODO : To dev
+    }
+
 }
