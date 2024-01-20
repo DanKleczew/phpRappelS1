@@ -1,8 +1,8 @@
 <?php
 
 require_once '../vendor/autoload.php';
-require_once '../src/View/Connexion.php';
-session_start();
+require_once '../src/Model/Connexion.php';
+
 use App\Router;
 
 $router = new Router();

@@ -1,0 +1,14 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+	{{ parent()}}
+{% endblock %}
+
+{% block body %}
+<h1> Votre compte a été créé </h1>
+<br>
+<h1> Bienvenue, {{prenom}} {{nom}} </h1>
+{% endblock %}
+
+{% block foot %}
+{{parent()}}
+{% endblock %}

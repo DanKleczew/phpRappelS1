@@ -4,9 +4,9 @@
 {% endblock %}
 
 {% block body %}
-<div style="width:50%; position: static;">
-<br> <br> <br>
-<form name="formulaire" method="post" action="?page=home&action=Create" onsubmit="return myFunction()">
+
+<div align="center">
+<form name="formulaire" method="post" action="?page=Inscription&action=Create">
                 <fieldset>
                     <legend><span>CRÉATION DE COMPTE CLIENT</span></legend>
                     <table>
@@ -86,29 +86,10 @@
                 </table>
             </fieldset>
         </form>
-    <br> <br> <br>
-    </div>
-    <div style ="left: 60%;top: -50%; position:relative; width:40%">
-    <form name="formulaire" method="post" action="?page=Inscription&action=update" >
-    <table>
-        <tr>
-            <td><label for="mailUser">Mail</label</td>
-            <td><input type="text" name="mailUser"></td>
-        </tr>
-        <tr>
-            <td><label for="mdpUser">Mot de passe</label></td>
-            <td><input type="password" name="mdpUser"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><br><input type="submit" value="Se connecter"></td> 
-        </tr>
-        
-    </table>
-
-    </form>
-    </div>
+        </div>
+   
     {% endblock %}
     
     {% block foot %}
-        {{ parent() }}
+        {{ parent()}}
     {% endblock %}
