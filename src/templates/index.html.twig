@@ -1,4 +1,11 @@
-{# Comment in Twig #}
-{% for color in colors %}
-    {{ color }} <br>
-{% endfor %}
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+	{{ parent()}}
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}

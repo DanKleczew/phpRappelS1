@@ -16,7 +16,6 @@ class Clients
 
     public function __construct() {
         include '../src/View/Connexion.php';
-        var_dump($connexionBDD);
         $this->connexion = $connexionBDD;
     }
 
@@ -27,7 +26,6 @@ class Clients
         $this->mdp = $user->getmdp();
         $this->dateNaissance = $user->getdateNaissance();
         $this->numTel = $user->getnumTel();
-        var_dump($this->numTel);
         //$SQL = $this->connexion->prepare("INSERT INTO CLIENTS (Nom,Prenom,DateNaissance,NumeroTel,Mail,MDP) VALUES ($this->name,$this->firstName,$this->dateNaissance,$this->numTel,$this->email,$this->mdp)");
         $SQL = $this->connexion->prepare("INSERT INTO CLIENTS (Nom,Prenom,DateNaissance,NumeroTel,Mail,MDP) VALUES (:name1,:firstName,:dateNaissance,:numTel,:email,:mdp)");
         $requeteTest = $SQL->execute(array("name1"=>$this->name,"firstName"=>$this->firstName,"dateNaissance"=>$this->dateNaissance,"numTel"=>$this->numTel,"email"=>$this->email,"mdp"=>$this->mdp));
@@ -37,7 +35,25 @@ class Clients
             echo"compte crée";
         }
     
-    }   
+    }
+
+    public function verifUser($mail,$mdp){
+        $SQL = $this->connexion->query("SELECT MDP,Prenom,ID FROM CLIENTS WHERE Mail='$mail'")->fetch();
+        if ($mdp == $SQL[0]){
+            $_SESSION['user'] = $SQL[1];
+            $_SESSION['id'] = $SQL[2];
+        }
+    }
+    public function getHistoric($id){
+        $SQL = $this->connexion->query("SELECT achat.IDAchat, coussin.Nom AS NomCoussin, coussin.Prix
+        FROM achat
+        JOIN coussin ON achat.IDCoussin = coussin.IDCoussin
+        JOIN clients ON achat.IDClients = clients.ID
+        WHERE achat.IDClients = $id
+        ORDER BY achat.IDAchat DESC
+        LIMIT 10;")->fetchall();
+        return $SQL;
+    }
 }
 
 

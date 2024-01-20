@@ -8,7 +8,7 @@ use App\Controller\PostController2;
 use App\Controller\GeneralConditionsController;
 use App\Controller\ContactController;
 use App\Controller\InscriptionController;
-
+use App\Controller\AchatController;
 final class Router
 {
     private array $routes = [];
@@ -28,7 +28,7 @@ final class Router
 
     public function matchRoute(string $name, ?string $action): bool
     {
-        try {
+        // try {
             if (!$action) {
                 throw new \Exception('Controller action needed!');
             }
@@ -46,22 +46,12 @@ final class Router
             }
             switch ($controller){
                 case 'PostController':
-                    $controller = new PostController(); 
-                    var_dump($controller);
-                    break;
-                case 'PostController2':
-                    var_dump($controller);
-                    $controller = new PostController2(); 
-                    var_dump($controller);
-                    break;
+                    $controller = new PostController();break;
                 case 'HomeController':
                     $controller = new HomeController(); break;
-                case 'ContactController':
-                    $controller = new ContactController(); break;
-                case 'GeneralConditionsController':
-                    $controller = new GeneralConditionsController(); break;
+                case 'Achat':
+                    $controller = new AchatController(); break;
                 case 'InscriptionController': 
-                    var_dump($controller);
                     $controller = new InscriptionController(); break;
             }
 
@@ -70,9 +60,9 @@ final class Router
             }
 
             $controller->$action();
-        } catch (\Exception $exception) {
-            var_dump($exception->getMessage());
-        }
+        // } catch (\Exception $exception) {
+        //     var_dump($exception->getMessage());
+        // }
 
         return true;
     }

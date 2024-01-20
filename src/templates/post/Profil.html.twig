@@ -1,0 +1,18 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+	{{ parent()}}
+{% endblock %}
+
+{% block body %}
+{% for reponse in {liste} %}
+	{% include "HistoricBody.html.twig" with {
+		'nom':reponse[1],
+		'prix':reponse[2]
+		  } %}
+    
+
+{% endfor %}
+{% endblock %}
+{% block foot %}
+{{parent()}}
+{% endblock %}
