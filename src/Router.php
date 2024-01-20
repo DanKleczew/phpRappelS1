@@ -9,6 +9,7 @@ use App\Controller\GeneralConditionsController;
 use App\Controller\ContactController;
 use App\Controller\InscriptionController;
 use App\Controller\AchatController;
+
 final class Router
 {
     private array $routes = [];
@@ -28,7 +29,7 @@ final class Router
 
     public function matchRoute(string $name, ?string $action): bool
     {
-        // try {
+        try {
             if (!$action) {
                 throw new \Exception('Controller action needed!');
             }
@@ -57,9 +58,9 @@ final class Router
             }
 
             $controller->$action();
-        // } catch (\Exception $exception) {
-        //     var_dump($exception->getMessage());
-        // }
+        } catch (\Exception $exception) {
+            var_dump($exception->getMessage());
+        }
 
         return true;
     }

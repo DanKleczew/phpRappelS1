@@ -3,19 +3,13 @@
 namespace App\Controller;
 
 use App\Controller\BaseController;
-use App\View\Personne;
-use App\View\Clients;
+use App\Model\Personne;
+use App\Model\Clients;
 
 class InscriptionController extends BaseController{
     private $personne;
     private $clients;
-
-    public function __construct()
-    {
-        $this->personne = new Personne();
-        $this->clients = new Clients();
-    }
-
+    
     public function Create(){
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $this->personne->setUser($_POST['nom'],$_POST['prenom'],$_POST['datenaiss'],$_POST['tel'],$_POST['mail'],$_POST['mdp1']);

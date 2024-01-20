@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Controller\BaseController;
-use App\View\Clients;
-use App\View\Personne;
+use App\Model\Clients;
+use App\Model\Personne;
 
 final class HomeController extends BaseController
 {
