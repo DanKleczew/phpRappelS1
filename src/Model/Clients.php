@@ -1,6 +1,6 @@
 <?php
-namespace App\View;
-use App\View\Connexion;
+namespace App\Model;
+use App\Model\Connexion;
 
 class Clients
 {
@@ -15,7 +15,7 @@ class Clients
     private $mdp;
 
     public function __construct() {
-        include '../src/View/Connexion.php';
+        include '../src/Model/Connexion.php';
         $this->connexion = $connexionBDD;
     }
 
