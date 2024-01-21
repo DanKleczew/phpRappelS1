@@ -1,0 +1,13 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<h1 align='center'>L'adresse mail : {{ Mail }} n'existe pas <br>
+<a href='?page=Coussin&action=create'> Réessayer </a></h1>
+{% endblock %}
+
+{% block foot %}
+    {{ parent() }}
+{% endblock %}

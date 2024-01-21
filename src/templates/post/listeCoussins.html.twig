@@ -14,8 +14,8 @@
     Prix : {{ objet.Prix }} € <br>
     Quantité : {{ objet.Quantité }} <h3>
     
-    <a href='?page=Coussin&action=update&ID={{ objet.IDCoussin }}'> Modifier les informations de ce coussin </a> <br>
-    <a style='color:red' href='?page=Coussin&action=delete&name={{ objet.IDCoussin }}'> Supprimer ce coussin </a>
+    <a href='?page=Coussin&action=update&IDCoussin={{ objet.IDCoussin }}'> Modifier les informations de ce coussin </a> <br>
+    <a style='color:red' href='?page=Coussin&action=delete&IDCoussin={{ objet.IDCoussin }}'> Supprimer ce coussin </a>
     </div>
     <br>
     {% endfor %}

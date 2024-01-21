@@ -1,7 +1,7 @@
 <?php
 namespace App\Model;
 use Connexion;
-
+use Exception;
 
 class Coussin{
 
@@ -11,8 +11,15 @@ class Coussin{
         $this->BDD = new Connexion();
     }
 
-    public function createCoussin($quantite, $prix, $nom, $IDCreateur){
-        $SQL = $this->BDD->getConnection()->query("INSERT INTO COUSSIN (Quantité, Prix, Nom, IDCreateur) VALUES ($quantite , $prix, $nom, $IDCreateur)");
+    public function createCoussin($nom, $prix, $quantite, $mail){
+        $SQL1 = $this->BDD->getConnection()->query("SELECT ID FROM CLIENTS WHERE Mail = '$mail'")->fetch();
+        if ($SQL1 == false){
+            return false;
+        }
+        else {
+            $SQL = $this->BDD->getConnection()->query("INSERT INTO COUSSIN (Quantité, Prix, Nom, IDCreateur) VALUES ('$quantite' , '$prix', '$nom', '$SQL1->ID')");
+            return true;
+        }
     }
 
     public function getAllCoussins(){
@@ -20,12 +27,12 @@ class Coussin{
         return $answer;
     }
 
-    public function updateCoussin($quantite, $prix, $nom){
-        //TODO : To dev
+    public function updateCoussin($nom, $prix, $quantite, $IDCoussin){
+        $this->BDD->getConnection()->query("UPDATE COUSSIN SET Quantité = '$quantite', Prix = '$prix', Nom = '$nom' WHERE IDCoussin = '$IDCoussin'");
     }
 
     public function deleteCoussin($IDCoussin){
-        //TODO : To dev
+        $this->BDD->getConnection()->query("DELETE FROM COUSSIN WHERE IDCoussin = '$IDCoussin'");
     }
 
 }

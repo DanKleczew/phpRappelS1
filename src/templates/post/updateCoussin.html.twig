@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block body %}
-<div align="center">
-    <form name="formulaire" method="post" action="?page=Coussin&action=create">
+    <div align="center">
+    <form name="formulaire" method="post" action="?page=Coussin&action=update&IDCoussin={{ IDCoussin }}">
             <fieldset>
-                <legend><span>Création d'un coussin</span></legend>
+                <legend><span>MODIFICATION DES PROPRIÉTÉS DU COUSSIN</span></legend>
                     <table>
                     <tr>
                         <td><label>Nom du coussin: </label></td>
@@ -20,19 +20,11 @@
                     <tr>
                         <td>Prix: </td>
                         <td><input type="number" name="Prix" required></td>
+                    </tr><tr>
+                    <td><input type="submit" value="Modifier les informations"></td> 
                     </tr>
                 </table>
                 </fieldset>
-                <br>
-                <fieldset>
-                <table>
-                <tr>
-                    <td><label>Votre adresse mail: </label></td>
-                        <td><input type="text" name="mail" required></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="Créer Coussin"></td> 
-                </tr>
         </form>
     </div>
 {% endblock %}
