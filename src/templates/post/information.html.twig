@@ -1,0 +1,25 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+	{{ parent()}}
+{% endblock %}
+
+{% block body %}
+<table>
+<tr>
+<td>nom : </td><td>{{nom}} </td>
+</tr>
+<tr>
+<td>prenom : </td><td>{{prenom}} </td>
+</tr>
+<tr>
+<td>dateNaiss : </td><td>{{dateNaiss}} </td>
+</tr>
+<tr>
+<td>numTel : </td><td>{{numTel}} </td>
+</tr>
+    </table>
+{% endblock %}
+
+{% block foot %}
+{{parent()}}
+{% endblock %}

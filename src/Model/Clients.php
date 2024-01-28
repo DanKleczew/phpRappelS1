@@ -1,6 +1,6 @@
 <?php
 namespace App\Model;
-use App\Model\Connexion;
+use Connexion;
 
 class Clients
 {
@@ -15,8 +15,8 @@ class Clients
     private $mdp;
 
     public function __construct() {
-        include '../src/Model/Connexion.php';
-        $this->connexion = $connexionBDD;
+        $co = new Connexion();
+        $this->connexion = $co->getConnection();
     }
 
     public function addNewUser(){
@@ -29,25 +29,38 @@ class Clients
     }
 
     public function verifUser($mail,$mdp){
-        $SQL = $this->connexion->query("SELECT MDP,Prenom,ID FROM CLIENTS WHERE Mail='$mail'")->fetch();
-        if ($mdp == $SQL[0]){
-            $_SESSION['user'] = $SQL[1];
-            $_SESSION['id'] = $SQL[2];
+        if($SQL = $this->connexion->query("SELECT MDP,Prenom,ID FROM CLIENTS WHERE Mail='$mail'")->fetch()){
+        if ($mdp == $SQL->MDP){
+            $_SESSION['user'] = $SQL->Prenom;
+            $_SESSION['id'] = $SQL->ID;
+            return true;
         }
     }
-    public function getHistoric($id){
-        $SQL = $this->connexion->query("SELECT achat.IDAchat, coussin.Nom AS NomCoussin, coussin.Prix
-        FROM achat
-        JOIN coussin ON achat.IDCoussin = coussin.IDCoussin
-        JOIN clients ON achat.IDClients = clients.ID
-        WHERE achat.IDClients = $id
-        ORDER BY achat.IDAchat DESC
-        LIMIT 10;")->fetchall();
+        return false;
+    }
+    public function getHistoric($email){
+        $mail = $email;
+        $SQL = $this->connexion->query("SELECT c.*
+        FROM coussin c
+        JOIN clients cl ON c.IDCreateur = cl.ID
+        WHERE cl.Mail = '$mail';")->fetchall();
         return $SQL;
     }
 
-    public function getInformation($id){
-        
+    public function getInformation($mail){
+        $SQL = $this->connexion->query("SELECT Nom,Prenom,DateNaissance,NumeroTel FROM CLIENTS WHERE Mail='$mail'")->fetch();
+        return $SQL;
+    }
+
+    public function updateInfo(){
+        $id = $_SESSION["id"];
+        $SQL = $this->connexion->query("UPDATE CLIENTS SET
+        Nom = '$this->name',Prenom = '$this->firstName' ,DateNaissance = '$this->dateNaissance' ,NumeroTel = '$this->numTel',Mail = '$this->email',MDP = '$this->mdp' WHERE ID=$id ");
+
+    }
+    public function destroy($mail){
+        $email = $mail;
+        $SQL = $this->connexion->query("DELETE FROM CLIENTS WHERE Mail= '$email'");
     }
 
 

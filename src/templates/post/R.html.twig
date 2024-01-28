@@ -1,0 +1,38 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div align="center" style="width:50% ;position :relative; left:25% ; top:30%">
+		<fieldset>
+			<legend>
+				<span>
+					Vérifier les informations du compte</span>
+			</legend>
+			<form name="formulaire" method="post" action="?page=Inscription&action=Read">
+				<talbe>
+					<tr>
+						<td>Mail</td>
+						<td><input name="MailInformation" type="text"></td>
+					</tr>
+					<tr>
+						<td>MDP</td>
+						<td><input name="MDPInformation" type="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><br><input type="submit" value="vérifier les informations du compte"></td>
+					</tr>
+
+				</table>
+
+			</form>
+		</fieldset>
+	</div>
+
+{% endblock %}
+
+{% block foot %}
+    {{ parent() }}
+{% endblock %}

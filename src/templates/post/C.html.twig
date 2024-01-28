@@ -1,0 +1,132 @@
+{% extends "commun/headerAndFooter.html.twig" %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<div align="center" style="width:50% ;position :relative; left:25%">
+
+		<form name="formulaire" method="post" action="?page=Inscription&action=Create">
+			<fieldset>
+				<legend>
+					<span>CRÉATION DE COMPTE CLIENT</span>
+				</legend>
+				<table>
+					<tr>
+						<td>Civilité</td>
+						<td>
+							<input type="radio" name="civilite" value="madame" required>
+							<label>Madame</label>
+							<input type="radio" name="civilite" value="monsieur" required>
+							<label>Monsieur</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Prénom*:
+							</label>
+						</td>
+						<td><input type="text" name="prenom" required></td>
+					</tr>
+					<tr>
+						<td>Nom*:
+						</td>
+						<td><input type="text" name="nom" required></td>
+					</tr>
+					<tr>
+						<td>Date de naissance*:
+						</td>
+						<td><input type="date" name="datenaiss" required></td>
+					</tr>
+					<tr>
+						<td>Adresse*:
+						</td>
+						<td>
+							<textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)" required></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Code postal/Localité*:
+							</label>
+						</td>
+						<td><input type="number" name="postallocal1" size="5" required>
+							<input type="text" name="postallocal2" placeholder="Paris" size="8" required></td>
+					</tr>
+					<tr>
+						<td>Pays*:
+						</td>
+						<td>
+							<select size="1" name="pays" required>
+								<option>Suisse</option>
+								<option selected>France</option>
+								<option>Allemagne</option>
+								<option>Italie</option>
+								<option>Espagne</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="tel">Numéro de Téléphone :
+							</label>
+						</td>
+						<td><input type="number" , name="tel" required></td>
+					</tr>
+
+				</table>
+
+			</fieldset>
+			<br><br>
+			<fieldset>
+				<legend>
+					<span>IDENTIFIANT ET MOT DE PASSE</span>
+				</legend>
+				<table>
+					<tr>
+						<td>
+							<label for nom>Adresse Email:
+							</label>
+						</td>
+						<td><input type="text" , name="mail" required></td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mdp">Mot de Passe:
+							</label>
+						</td>
+						<td><input type="password" , name="mdp1" required></td>
+					</tr>
+					<tr>
+						<td>
+							<p>Majuscules, Minuscules, Chiffres, Caractères spéciaux</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mdp">Confirmez le Mot de Passe:
+							</label>
+						</td>
+						<td><input type="password" , name="mdp2" required></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="checkbox" name="newsletter"><label>
+								Abonnez vous à notre Newsletter</label>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><br><input type="submit" value="Créer un compte"></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+
+
+{% endblock %}
+
+{% block foot %}
+    {{ parent() }}
+{% endblock %}

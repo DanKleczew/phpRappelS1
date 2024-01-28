@@ -1,95 +1,303 @@
 {% extends "commun/headerAndFooter.html.twig" %}
 {% block head %}
-    {{ parent() }}
+	{{ parent() }}
 {% endblock %}
 
 {% block body %}
 
-<div align="center">
-<form name="formulaire" method="post" action="?page=Inscription&action=Create">
-                <fieldset>
-                    <legend><span>CRÉATION DE COMPTE CLIENT</span></legend>
-                    <table>
-                    <tr>
-                        <td>Civilité</td><td>
-                        <input type="radio" name="civilite" value="madame" required>
-                        <label>Madame</label>
-                        <input type="radio" name="civilite" value="monsieur" required>
-                        <label>Monsieur</label></td>
-                    </tr>
-                    <tr>
-                        <td><label>Prénom*: </label></td>
-                        <td><input type="text" name="prenom" required></td>
-                    </tr>
-                    <tr>
-                        <td>Nom*: </td>
-                        <td><input type="text" name="nom" required></td>
-                    </tr>
-                    <tr>
-                        <td>Date de naissance*: </td>
-                        <td><input type="date" name="datenaiss" required></td>
-                    </tr><tr>
-                        <td>Adresse*: </td>
-                        <td><textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)" required></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><label>Code postal/Localité*: </label></td>
-                        <td><input type="number" name="postallocal1" size="5" required>
-                            <input type="text" name="postallocal2" placeholder="Paris" size="8" required></td>
-                    </tr>
-                    <tr>
-                        <td>Pays*: </td>
-                        <td>
-                            <select size="1" name="pays" required>
-                                    <option>Suisse</option>
-                                    <option selected>France</option>
-                                    <option>Allemagne</option>
-                                    <option>Italie</option>
-                                    <option>Espagne</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="tel" >Numéro de Téléphone :  </label></td>
-                        <td><input type="number", name="tel" required></td>
-                    </tr>
-                    
-                </table>
-            
-            </fieldset>
-            <br><br>
-            <fieldset>
-                <legend><span>IDENTIFIANT ET MOT DE PASSE</span></legend>
-                <table>
-                    <tr>
-                        <td><label for Nom>Adresse Email: </label></td>
-                        <td><input type="text", name="mail" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="mdp">Mot de Passe: </label></td>
-                        <td><input type="password", name="mdp1" required></td>
-                    </tr>
-                    <tr>
-                        <td><p>Majuscules, Minuscules, Chiffres, Caractères spéciaux</p></td>
-                    </tr>
-                    <tr>
-                        <td><label for="mdp">Confirmez le Mot de Passe: </label></td>
-                        <td><input type="password", name="mdp2" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input type="checkbox" name="newsletter"><label> Abonnez vous à notre Newsletter</label></td>
-                    </tr>
-                    
-                    <tr>
-                        <td colspan="2"><br><input type="submit" value="Créer un compte"></td> 
-                    </tr>
-                </table>
-            </fieldset>
-        </form>
-        </div>
-   
-    {% endblock %}
-    
-    {% block foot %}
-        {{ parent()}}
-    {% endblock %}
+	<h1>
+	Bienvenue, que souhaitez-vous faire à partir de votre compte ?
+	</h1>
+	<form name="formulaire" method="post" action="?page=Inscription&action=Choix">
+		<fieldset>
+		<legend><span>Option du compte</span></legend>
+		<label for="objet">Que souhaitez-vous faire ? :</label>
+		<select name="objet" id="objet">
+			<option value="C">Créer un compte</option>
+			<option value="R">Vérifier les informations</option>
+			<option value="U">Modifier mon compte</option>
+			<option value="D">Supprimer le compte</option>
+		</select>
+		<br>
+		<input type="submit" value="Valider">
+		</fieldset>
+	</form>
+
+	{# <div align="center" style="width:33%; position:absolute ; top:300px;">
+		<form name="formulaire" method="post" action="?page=Inscription&action=Create">
+			<fieldset>
+				<legend>
+					<span>CRÉATION DE COMPTE CLIENT</span>
+				</legend>
+				<table>
+					<tr>
+						<td>Civilité</td>
+						<td>
+							<input type="radio" name="civilite" value="madame" required>
+							<label>Madame</label>
+							<input type="radio" name="civilite" value="monsieur" required>
+							<label>Monsieur</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Prénom*:
+							</label>
+						</td>
+						<td><input type="text" name="prenom" required></td>
+					</tr>
+					<tr>
+						<td>Nom*:
+						</td>
+						<td><input type="text" name="nom" required></td>
+					</tr>
+					<tr>
+						<td>Date de naissance*:
+						</td>
+						<td><input type="date" name="datenaiss" required></td>
+					</tr>
+					<tr>
+						<td>Adresse*:
+						</td>
+						<td>
+							<textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)" required></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Code postal/Localité*:
+							</label>
+						</td>
+						<td><input type="number" name="postallocal1" size="5" required>
+							<input type="text" name="postallocal2" placeholder="Paris" size="8" required></td>
+					</tr>
+					<tr>
+						<td>Pays*:
+						</td>
+						<td>
+							<select size="1" name="pays" required>
+								<option>Suisse</option>
+								<option selected>France</option>
+								<option>Allemagne</option>
+								<option>Italie</option>
+								<option>Espagne</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="tel">Numéro de Téléphone :
+							</label>
+						</td>
+						<td><input type="number" , name="tel" required></td>
+					</tr>
+
+				</table>
+
+			</fieldset>
+			<br><br>
+			<fieldset>
+				<legend>
+					<span>IDENTIFIANT ET MOT DE PASSE</span>
+				</legend>
+				<table>
+					<tr>
+						<td>
+							<label for nom>Adresse Email:
+							</label>
+						</td>
+						<td><input type="text" , name="mail" required></td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mdp">Mot de Passe:
+							</label>
+						</td>
+						<td><input type="password" , name="mdp1" required></td>
+					</tr>
+					<tr>
+						<td>
+							<p>Majuscules, Minuscules, Chiffres, Caractères spéciaux</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mdp">Confirmez le Mot de Passe:
+							</label>
+						</td>
+						<td><input type="password" , name="mdp2" required></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="checkbox" name="newsletter"><label>
+								Abonnez vous à notre Newsletter</label>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><br><input type="submit" value="Créer un compte"></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div> #}
+
+	{# <div style="position:absolute; left :33%; top:585px; height:200px;">
+		<fieldset>
+			<legend>
+				<span>
+					Vérifier les informations du compte</span>
+			</legend>
+			<form name="formulaire" method="post" action="?page=Inscription&action=Read">
+				<talbe>
+					<tr>
+						<td>Mail</td>
+						<td><input name="MailInformation" type="text"></td>
+					</tr>
+					<tr>
+						<td>MDP</td>
+						<td><input name="MDPInformation" type="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><br><input type="submit" value="vérifier les informations du compte"></td>
+					</tr>
+
+				</table>
+
+			</form>
+		</fieldset>
+	</div> #}
+
+	{# <div style="position:absolute; left :33%; top:300px; height:200px;">
+		<fieldset>
+			<legend>
+				<span>
+					Suppression de votre compte
+				</span>
+			</legend>
+			<form name="formulaire" method="post" action="?page=Inscription&action=Destroy">
+				<talbe>
+					<tr>
+						<td>Mail</td>
+						<td><input name="MailInformation" type="text"></td>
+					</tr>
+					<tr>
+						<td>MDP</td>
+						<td><input name="MDPInformation" type="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><br><input type="submit" value="supprimer le compte"></td>
+					</tr>
+
+				</table>
+
+			</form>
+		</fieldset>
+	</div> #}
+
+
+	{# <div align="center" style="width:33%; position:absolute; left: 66%; top:300px">
+		<form name="formulaire" method="post" action="?page=Inscription&action=Update">
+			<fieldset>
+				<legend>
+					<span>Changer les informations du compte</span>
+				</legend>
+				<table>
+					<tr>
+						<td>Civilité</td>
+						<td>
+							<input type="radio" name="civilite" value="madame" required>
+							<label>Madame</label>
+							<input type="radio" name="civilite" value="monsieur" required>
+							<label>Monsieur</label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Prénom*:
+							</label>
+						</td>
+						<td><input type="text" name="prenom" required></td>
+					</tr>
+					<tr>
+						<td>Nom*:
+						</td>
+						<td><input type="text" name="nom" required></td>
+					</tr>
+					<tr>
+						<td>Date de naissance*:
+						</td>
+						<td><input type="date" name="datenaiss" required></td>
+					</tr>
+					<tr>
+						<td>Adresse*:
+						</td>
+						<td>
+							<textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)" required></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Code postal/Localité*:
+							</label>
+						</td>
+						<td><input type="number" name="postallocal1" size="5" required>
+							<input type="text" name="postallocal2" placeholder="Paris" size="8" required></td>
+					</tr>
+					<tr>
+						<td>Pays*:
+						</td>
+						<td>
+							<select size="1" name="pays" required>
+								<option>Suisse</option>
+								<option selected>France</option>
+								<option>Allemagne</option>
+								<option>Italie</option>
+								<option>Espagne</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="tel">Numéro de Téléphone :
+							</label>
+						</td>
+						<td><input type="number" , name="tel" required></td>
+					</tr>
+
+				</table>
+
+			</fieldset>
+			<br><br>
+			<fieldset>
+				<legend>
+					<span>Identifiant de connexion</span>
+				</legend>
+				<table>
+					<tr>
+						<td>
+							<label for nom>Adresse Email:
+							</label>
+						</td>
+						<td><input type="text" , name="mail" required></td>
+					</tr>
+					<tr>
+						<td>
+							<label for="mdp">Mot de Passe:
+							</label>
+						</td>
+						<td><input type="password" , name="mdp1" required></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><br><input type="submit" value="Modifier mon compte"></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+	</div> #}
+
+{% endblock %}
+
+{% block foot %}
+	{{ parent()}}
+{% endblock %}
