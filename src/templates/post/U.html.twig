@@ -9,18 +9,9 @@
 		<form name="formulaire" method="post" action="?page=Inscription&action=Update">
 			<fieldset>
 				<legend>
-					<span>Changer les informations du compte</span>
+					<span>CRÉATION DE COMPTE CLIENT</span>
 				</legend>
 				<table>
-					<tr>
-						<td>Civilité</td>
-						<td>
-							<input type="radio" name="civilite" value="madame" required>
-							<label>Madame</label>
-							<input type="radio" name="civilite" value="monsieur" required>
-							<label>Monsieur</label>
-						</td>
-					</tr>
 					<tr>
 						<td>
 							<label>Prénom*:
@@ -39,34 +30,6 @@
 						<td><input type="date" name="datenaiss" required></td>
 					</tr>
 					<tr>
-						<td>Adresse*:
-						</td>
-						<td>
-							<textarea name="adresse" placeholder="N° Rue (Exemple : 15 rue Nationale)" required></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>Code postal/Localité*:
-							</label>
-						</td>
-						<td><input type="number" name="postallocal1" size="5" required>
-							<input type="text" name="postallocal2" placeholder="Paris" size="8" required></td>
-					</tr>
-					<tr>
-						<td>Pays*:
-						</td>
-						<td>
-							<select size="1" name="pays" required>
-								<option>Suisse</option>
-								<option selected>France</option>
-								<option>Allemagne</option>
-								<option>Italie</option>
-								<option>Espagne</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
 						<td>
 							<label for="tel">Numéro de Téléphone :
 							</label>
@@ -80,7 +43,7 @@
 			<br><br>
 			<fieldset>
 				<legend>
-					<span>Identifiant de connexion</span>
+					<span>IDENTIFIANT ET MOT DE PASSE DE CONNECTION</span>
 				</legend>
 				<table>
 					<tr>
@@ -88,7 +51,7 @@
 							<label for nom>Adresse Email:
 							</label>
 						</td>
-						<td><input type="text" , name="mail" required></td>
+						<td><input type="email" , name="mail" required></td>
 					</tr>
 					<tr>
 						<td>
@@ -97,7 +60,6 @@
 						</td>
 						<td><input type="password" , name="mdp1" required></td>
 					</tr>
-
 					<tr>
 						<td colspan="2"><br><input type="submit" value="Modifier mon compte"></td>
 					</tr>

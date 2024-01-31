@@ -22,10 +22,15 @@ class Clients
     public function addNewUser(){
         $SQL = $this->connexion->prepare("INSERT INTO CLIENTS (Nom,Prenom,DateNaissance,NumeroTel,Mail,MDP) VALUES (:name1,:firstName,:dateNaissance,:numTel,:email,:mdp)");
         $requeteTest = $SQL->execute(array("name1"=>$this->name,"firstName"=>$this->firstName,"dateNaissance"=>$this->dateNaissance,"numTel"=>$this->numTel,"email"=>$this->email,"mdp"=>$this->mdp));
-        if($requeteTest){
-            echo"compte crée";
-        }
     
+    }
+
+    public function verifMail(){
+        $mail = $this->email;
+        if($SQL = $this->connexion->query("SELECT MAIL FROM CLIENTS WHERE Mail='$mail'")->fetch()){
+            return false;
+        }
+        return true;
     }
 
     public function verifUser($mail,$mdp){
@@ -59,8 +64,14 @@ class Clients
 
     }
     public function destroy($mail){
-        $email = $mail;
-        $SQL = $this->connexion->query("DELETE FROM CLIENTS WHERE Mail= '$email'");
+        $email1 = $mail;
+        try {
+            $SQL = $this->connexion->query("DELETE FROM CLIENTS WHERE Mail= '$email1'");
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+ 
     }
 
 
